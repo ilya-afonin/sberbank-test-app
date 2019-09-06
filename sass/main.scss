@@ -1,0 +1,57 @@
+
+body {
+  font-family: 'Open Sans Regular', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+.header {
+  padding: 30px;
+}
+.header-title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.databar {
+  .btn {
+    margin-right: 1rem;
+  }
+}
+
+.btn {
+  &:hover, &:focus {
+    text-decoration: none !important;
+  }
+}
+.fa-caret-down {
+  pointer-events: none !important;
+  transition: transform .2s ease-in-out;
+  &.rotate {
+    transform: rotate(180deg); 
+  }
+}
+.user {
+  padding: 1rem;
+  background-color: #eee;
+  &--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+  &__row {
+    margin-bottom: 1rem;
+    textarea {
+      width: 100%;
+      resize: none;
+      border: none;
+      padding: 5px;
+    }
+  }
+}
+.user-list {
+  tbody tr {
+    cursor: pointer;
+    transition: background-color 100ms;
+  }
+}
