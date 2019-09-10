@@ -30,9 +30,13 @@ function receiveUsers(data) {
 
 export function fetchUsers(store, url) {
   return (dispatch) => {
-    return fetch(url)
+    return fetch(url, { mode: 'cors'})
       .then(response => response.json())
       .then(json => store.dispatch(receiveUsers(Immutable.fromJS(json))))
       .catch(ex => console.log('parsing failed', ex));
   };
+}
+
+export function Headers(headers) {
+     this.map = {}
 }

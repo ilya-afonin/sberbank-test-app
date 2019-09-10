@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { SearchBar, DataBar, UserTable, UserDetail } from '../components';
 import * as actions from '../actions';
 
-const { searchText, changeActive, addFilter } = actions;
+const { searchText, changeActive, addFilter, fetchUsers } = actions;
 
 class SearchApp extends Component {
   constructor(props) {
@@ -25,6 +25,10 @@ class SearchApp extends Component {
     this.store.dispatch(addFilter({type}));
   }
 
+  onFetch(url) {
+    this.store.dispatch(fetchUsers(this.store, url))
+  }
+
   render () {
     const state = this.store.getState();
   
@@ -32,7 +36,7 @@ class SearchApp extends Component {
       <div className="container">
         <div className="row">
           <div className="col-5">
-            <DataBar onSorted={this.onSorted.bind(this)} />
+            {/* <DataBar onFetch={this.onFetch.bind(this)} /> */}
           </div>
           <div className="col-7">
             <SearchBar onSearch={this.onSearch.bind(this)} />

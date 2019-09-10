@@ -34,7 +34,7 @@ export default class UserTable extends Component {
     }
 
     const isDataLoaded = !this.props.isFetching;
-    const loading = <span>Loading...</span>;
+    const loading = <span>Загрузка...</span>;
 
     return isDataLoaded? (
       <Table bordered hover className="user-list" size="sm">

@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack')
+const webpack = require('webpack');
 const webpackStream = require('webpack-stream').webpack;
 
 module.exports = {
@@ -16,7 +16,7 @@ module.exports = {
     }),
     new webpackStream.ProvidePlugin({
       'Immutable': 'Immutable',
-      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+      'fetch': 'exports-loader?self.fetch!whatwg-fetch/dist/fetch.umd'
     })
   ],
   resolveLoader: {
@@ -42,11 +42,11 @@ module.exports = {
                     browsers: [
                       'last 2 versions'
                     ]
-                  },
-                  modules: "commonjs" // Needed for tree shaking to work.
+                  }, 
+                  modules: "commonjs"
                 }
               ],
-              '@babel/react' // https://goo.gl/4aEFV3
+              '@babel/react'
             ],
     
             plugins: [

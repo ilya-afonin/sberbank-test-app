@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import {URL_DATA_BIG, URL_DATA_SMALL} from '../constants/DataUrls'
 
 export default class DataBar extends Component {
   constructor(props) {
     super(props);
   }
 
-  onSortedByName(e) {
-    this.props.onSorted('name');
+  getSmallData(e) {
+    this.props.onFetch(URL_DATA_SMALL);
+  }
+
+  getBigData() {
+    this.props.onFetch(URL_DATA_BIG);
   }
 
   render() {
     return (
       
       <div className="databar">
-        <Button variant="primary" onClick={this.onSortedByName.bind(this)}>
-            Small Data
+        <Button onClick={this.getSmallData.bind(this)}>
+          Small Data
         </Button>
-        <Button variant="primary" onClick={this.onSortedByName.bind(this)}>
+        <Button onClick={this.getBigData.bind(this)}>
           Big Data
         </Button>
       </div>
